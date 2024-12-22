@@ -3,12 +3,6 @@ import User from './userModel';
 
 const router = express.Router();
 
-// Get all tasks
-router.get('/', async (req, res) => {
-    const tasks = await Task.find().populate('userId', 'username');
-    res.status(200).json(tasks);
-});
-
 // register(Create)/Authenticate User
 router.post('/', async (req, res) => {
     if (req.query.action === 'register') {  //if action is 'register' then save to DB
